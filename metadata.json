@@ -1,0 +1,5 @@
+{
+  "name": "EuroLabel AI - Smart Food Label Generator",
+  "description": "Automated multilingual food label creator compliant with EU/UK standards. Translates Chinese product data to EN, DE, FR, IT and generates print-ready PDFs.",
+  "requestFramePermissions": []
+}
