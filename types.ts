@@ -65,15 +65,7 @@ export interface LabelHeaders {
   bestBefore: string;
   productionDate: string;
   usage: string;
-  netWeight: string; // New
-  distributor: string; // New
+  netWeight: string;
+  distributor: string;
   batchNote: string;
-}
-
-// Extend Window for external libraries loaded via CDN
-declare global {
-  interface Window {
-    html2canvas: any;
-    jspdf: any;
-  }
 }

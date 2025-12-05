@@ -4,6 +4,8 @@ import { DEFAULT_FIELDS, INITIAL_CONTENT, INITIAL_NUTRITION, NUTRITION_LABELS_CN
 import { FieldConfig, LabelContent, Language, PaperSize, TranslatedLabels, NutritionInfo } from './types';
 import { translateLabelData } from './services/geminiService';
 import { LabelPreview } from './components/LabelPreview';
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
 
 const App: React.FC = () => {
   // State
@@ -51,15 +53,13 @@ const App: React.FC = () => {
   };
 
   const generatePDF = async (lang: Language) => {
-    const { jsPDF } = window.jspdf;
-    
     // Select the element to capture
     const element = document.getElementById(`label-preview-${lang}`);
     if (!element) return;
 
     try {
       // 1. Capture High Res Canvas
-      const canvas = await window.html2canvas(element, {
+      const canvas = await html2canvas(element, {
         scale: 3, // Higher scale for better print quality
         useCORS: true,
         backgroundColor: '#ffffff'
